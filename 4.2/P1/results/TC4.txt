@@ -1,0 +1,8 @@
+Resultado de las estadisticas
+------------------------------
+Media: 149.00267
+Mediana: 147.75000
+Moda: [123.75]
+Desviacion Estandar: 130.41959
+Varianza: 17009.26822
+Tiempo de ejecucion: 0.006954 segundos
