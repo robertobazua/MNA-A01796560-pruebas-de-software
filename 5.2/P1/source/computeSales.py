@@ -13,6 +13,15 @@ def cargar_archivo(ruta_archivo):
         print(f"Error: Se produjo un error inesperado al cargar el archivo. {error}")
         return None
 
+def validar_calogo_precios(catalogo_precios):
+    try:
+        if 'title' not in catalogo_precios or 'price' not in catalogo_precios:
+            print("Error: El catalogo no tiene las columnas 'title' o 'price'")
+            return None
+    except Exception as error:
+        print(f"Error: Ocurrio un error al validar el catalogo de precios")
+        return None
+
 def main():
 
     inicia_tiempo = time.time()
@@ -28,6 +37,9 @@ def main():
 
     df_precios = cargar_archivo(catalogo_precios)
     df_ventas = cargar_archivo(registro_ventas)
+
+    if validar_calogo_precios(df_precios) is None:
+        sys.exit(1)
 
     tiempo_ejecucion = time.time() - inicia_tiempo
 
