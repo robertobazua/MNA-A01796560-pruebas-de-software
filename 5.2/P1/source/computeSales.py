@@ -1,12 +1,12 @@
-
+# pylint: disable=invalid-name
 """
 Programa: computeSales.py
-Actividad 5. Calcula el costo total de las ventas usando Pandas para mayor eficiencia.
+Actividad 5. Calcula el costo total de las ventas.
 """
 
 import sys
-import pandas as pd
 import time
+import pandas as pd
 
 
 def cargar_archivo(ruta_archivo):
@@ -14,24 +14,24 @@ def cargar_archivo(ruta_archivo):
     try:
         archivo = pd.read_json(ruta_archivo)
         return archivo
+    except FileNotFoundError as error:
+        print(f"Error: El arhivo no existe en la ruta. {error}")
+        return None
     except ValueError as error:
         print(f"Error: El archivo no tiene formato JSON valido. {error}")
         return None
-    except Exception as error:
-        print(f"Error inesperado al cargar el archivo. {error}")
+    except PermissionError as error:
+        print(f"Error: No se tienen permisos para el archivo. {error}")
         return None
+    return None
 
 
 def validar_calogo_precios(df_precios):
     """Funcion para validar columnas necesarias del catalogo de precios."""
-    try:
-        if 'title' not in df_precios or 'price' not in df_precios:
-            print("Error: El catalogo no tiene las columnas 'title' o 'price'")
-            return None
-    except Exception as error:
-        print(f"Ocurrio un error al validar el catalogo de precios. {error}")
-        return None
-    return 1
+    if 'title' not in df_precios or 'price' not in df_precios:
+        print("Error: El catalogo no tiene las columnas 'title' o 'price'")
+        return False
+    return True
 
 
 def calcular_totales(df_precios, df_ventas):
@@ -40,9 +40,9 @@ def calcular_totales(df_precios, df_ventas):
     df_merge = pd.merge(
         df_ventas,
         df_precios[['title', 'price']],
-        left_on = 'Product',
-        right_on = 'title',
-        how = 'left'
+        left_on='Product',
+        right_on='title',
+        how='left'
     )
 
     print(df_merge)
@@ -76,7 +76,7 @@ def main():
     df_precios = cargar_archivo(catalogo_precios)
     df_ventas = cargar_archivo(registro_ventas)
 
-    if validar_calogo_precios(df_precios) is None:
+    if validar_calogo_precios(df_precios) is False:
         sys.exit(1)
 
     total = calcular_totales(df_precios, df_ventas)
