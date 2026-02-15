@@ -13,14 +13,36 @@ def cargar_archivo(ruta_archivo):
         print(f"Error: Se produjo un error inesperado al cargar el archivo. {error}")
         return None
 
-def validar_calogo_precios(catalogo_precios):
+def validar_calogo_precios(df_precios):
     try:
-        if 'title' not in catalogo_precios or 'price' not in catalogo_precios:
+        if 'title' not in df_precios or 'price' not in df_precios:
             print("Error: El catalogo no tiene las columnas 'title' o 'price'")
             return None
     except Exception as error:
         print(f"Error: Ocurrio un error al validar el catalogo de precios")
         return None
+    
+    return 1
+
+def calcular_totales(df_precios, df_ventas):
+
+    df_merge = pd.merge(
+        df_ventas,
+        df_precios[['title', 'price']],
+        left_on = 'Product',
+        right_on = 'title',
+        how = 'left'
+    )
+
+    ventas_invalidas = df_merge[df_merge['price'].isna()]
+
+    if not ventas_invalidas.empty:
+        for producto in ventas_invalidas['Product'].unique():
+            print(f"Error: El producto '{producto}' no existe en el catalogo.")
+
+    df_merge['subtotal'] = df_merge['price'] * df_merge['Quantity']
+
+    return df_merge['subtotal'].sum()
 
 def main():
 
@@ -40,6 +62,10 @@ def main():
 
     if validar_calogo_precios(df_precios) is None:
         sys.exit(1)
+
+    total = calcular_totales(df_precios, df_ventas)
+
+    print(f"Total: {total}")
 
     tiempo_ejecucion = time.time() - inicia_tiempo
 
