@@ -81,25 +81,30 @@ def main():
 
     separador = "=" * 130
     titulo = "REPORTE DE VENTAS".center(130)
-    reporte_contenido = (
-        f"{separador}\n"
-        f"{titulo}\n"
-        f"{separador}\n"
-        f"{df_ventas.to_string(index=False)}\n"
-        f"{separador}\n"
-        f"Total: {total:,.4f}\n"
-        f"{separador}\n"
-        f"{df_ventas_invalidas.to_string(index=False)}\n"
-        f"{separador}\n"
-        f"Tiempo de ejecución: {tiempo_ejecucion:.4f} segundos\n"
-        f"{separador}"
-    )
+    reporte = [
+       separador,
+       titulo,
+       separador,
+       df_ventas.to_string(index=False),
+       separador,
+       f"Total: {total:,.4f}",
+       separador
+    ]
 
-    print(reporte_contenido)
+    if not df_ventas_invalidas.empty:
+        reporte.append("\nPRODUCTOS INVALIDOS:")
+        reporte.append(df_ventas_invalidas.to_string(index=False))
+        reporte.append(separador)
+    reporte.append(f"Tiempo de ejecucion: {tiempo_ejecucion:.4f} segundos")
+    reporte.append(separador)
+
+    reporte_final = "\n".join(reporte)
+
+    print(reporte_final)
 
     try:
         with open("SalesResults.txt", "w", encoding="utf-8") as archivo:
-            archivo.write(reporte_contenido + "\n")
+            archivo.write(reporte_final + "\n")
     except IOError as err:
         print(f"Error al guardar el archivo: {err}")
 
