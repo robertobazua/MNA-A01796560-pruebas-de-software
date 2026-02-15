@@ -89,6 +89,8 @@ def main():
         f"{separador}\n"
         f"Total: {total:,.4f}\n"
         f"{separador}\n"
+        f"{df_ventas_invalidas.to_string(index=False)}\n"
+        f"{separador}\n"
         f"Tiempo de ejecución: {tiempo_ejecucion:.4f} segundos\n"
         f"{separador}"
     )
