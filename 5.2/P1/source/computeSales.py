@@ -1,8 +1,16 @@
+
+"""
+Programa: computeSales.py
+Actividad 5. Calcula el costo total de las ventas usando Pandas para mayor eficiencia.
+"""
+
 import sys
 import pandas as pd
 import time
 
+
 def cargar_archivo(ruta_archivo):
+    """Funcion para cargar los archivos JSON en DataFrames de Pandas."""
     try:
         archivo = pd.read_json(ruta_archivo)
         return archivo
@@ -10,21 +18,24 @@ def cargar_archivo(ruta_archivo):
         print(f"Error: El archivo no tiene formato JSON valido. {error}")
         return None
     except Exception as error:
-        print(f"Error: Se produjo un error inesperado al cargar el archivo. {error}")
+        print(f"Error inesperado al cargar el archivo. {error}")
         return None
 
+
 def validar_calogo_precios(df_precios):
+    """Funcion para validar columnas necesarias del catalogo de precios."""
     try:
         if 'title' not in df_precios or 'price' not in df_precios:
             print("Error: El catalogo no tiene las columnas 'title' o 'price'")
             return None
     except Exception as error:
-        print(f"Error: Ocurrio un error al validar el catalogo de precios")
+        print(f"Ocurrio un error al validar el catalogo de precios. {error}")
         return None
-    
     return 1
 
+
 def calcular_totales(df_precios, df_ventas):
+    """Funcion para calcular el total de la venta."""
 
     df_merge = pd.merge(
         df_ventas,
@@ -34,7 +45,11 @@ def calcular_totales(df_precios, df_ventas):
         how = 'left'
     )
 
+    print(df_merge)
+
     ventas_invalidas = df_merge[df_merge['price'].isna()]
+
+    print(ventas_invalidas)
 
     if not ventas_invalidas.empty:
         for producto in ventas_invalidas['Product'].unique():
@@ -44,14 +59,15 @@ def calcular_totales(df_precios, df_ventas):
 
     return df_merge['subtotal'].sum()
 
+
 def main():
+    """Funcion principal para la ejecucion de computeSales."""
 
     inicia_tiempo = time.time()
 
     if len(sys.argv) != 3:
-        print("Usar: python computeSales.py priceCatalogue.json salesRecord.json")
+        print("Error: Numero de parametros incorrecto")
         sys.exit(1)
-    
     ruta = ""
     catalogo_precios = ruta + sys.argv[1]
     registro_ventas = ruta + sys.argv[2]
@@ -70,6 +86,7 @@ def main():
     tiempo_ejecucion = time.time() - inicia_tiempo
 
     print(f"Tiempo de ejecucion: {tiempo_ejecucion:.4f} segundos")
+
 
 if __name__ == "__main__":
     main()
