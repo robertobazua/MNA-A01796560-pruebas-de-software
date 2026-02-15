@@ -3,37 +3,37 @@
     "SALE_ID": 1,
     "SALE_Date": "01/12/23",
     "Product": "Rustic breakfast",
-    "Quantity": 200
+    "Quantity": 1
   },
   {
     "SALE_ID": 1,
     "SALE_Date": "01/12/23",
     "Product": "Sandwich with salad",
-    "Quantity": 23
+    "Quantity": 2
   },
   {
     "SALE_ID": 1,
     "SALE_Date": "01/12/23",
     "Product": "Raw legums",
-    "Quantity": 11
+    "Quantity": 1
   },
   {
     "SALE_ID": 2,
     "SALE_Date": "01/12/23",
     "Product": "Fresh stawberry",
-    "Quantity": 221
+    "Quantity": 1
   },
   {
     "SALE_ID": 2,
     "SALE_Date": "01/12/23",
-    "Product": "Raw legums",
+    "Product": "Pears juice",
     "Quantity": 2
   },
   {
     "SALE_ID": 3,
     "SALE_Date": "01/12/23",
     "Product": "Green smoothie",
-    "Quantity": 400
+    "Quantity": 3
   },
   {
     "SALE_ID": 3,
@@ -57,37 +57,37 @@
     "SALE_ID": 4,
     "SALE_Date": "01/12/23",
     "Product": "Plums",
-    "Quantity": 250
+    "Quantity": 1
   },
   {
     "SALE_ID": 4,
     "SALE_Date": "01/12/23",
     "Product": "Fresh blueberries",
-    "Quantity": 334
+    "Quantity": 2
   },
   {
     "SALE_ID": 5,
     "SALE_Date": "01/12/23",
     "Product": "Green smoothie",
-    "Quantity": 300
+    "Quantity": 2
   },
   {
     "SALE_ID": 5,
     "SALE_Date": "01/12/23",
     "Product": "Corn",
-    "Quantity": 68
+    "Quantity": 3
   },
   {
     "SALE_ID": 5,
     "SALE_Date": "01/12/23",
     "Product": "French fries",
-    "Quantity": 33
+    "Quantity": 1
   },
   {
     "SALE_ID": 6,
     "SALE_Date": "01/12/23",
     "Product": "Ground beef meat burger",
-    "Quantity": 78
+    "Quantity": 1
   },
   {
     "SALE_ID": 6,
@@ -98,8 +98,8 @@
   {
     "SALE_ID": 6,
     "SALE_Date": "01/12/23",
-    "Product": "Sweet fresh stawberry",
-    "Quantity": 87
+    "Product": "Cherry",
+    "Quantity": 2
   },
   {
     "SALE_ID": 6,
@@ -111,7 +111,7 @@
     "SALE_ID": 6,
     "SALE_Date": "01/12/23",
     "Product": "Smoothie with chia seeds",
-    "Quantity": 46
+    "Quantity": 1
   },
   {
     "SALE_ID": 6,
@@ -122,157 +122,157 @@
   {
     "SALE_ID": 6,
     "SALE_Date": "01/12/23",
-    "Product": "Plums",
+    "Product": "Peaches on branch",
     "Quantity": 2
   },
   {
     "SALE_ID": 6,
     "SALE_Date": "01/12/23",
-    "Product": "Elotes",
-    "Quantity": 100
+    "Product": "Pesto with basil",
+    "Quantity": 2
+  },
+  {
+    "SALE_ID": 7,
+    "SALE_Date": "01/12/23",
+    "Product": "Plums",
+    "Quantity": 1
+  },
+  {
+    "SALE_ID": 7,
+    "SALE_Date": "01/12/23",
+    "Product": "Fresh blueberries",
+    "Quantity": 2
   },
   {
     "SALE_ID": 7,
     "SALE_Date": "01/12/23",
     "Product": "Green smoothie",
-    "Quantity": 1
-  },
-  {
-    "SALE_ID": 7,
-    "SALE_Date": "01/12/23",
-    "Product": "Corn",
-    "Quantity": 2
-  },
-  {
-    "SALE_ID": 7,
-    "SALE_Date": "01/12/23",
-    "Product": "French fries",
     "Quantity": 4
   },
   {
     "SALE_ID": 7,
     "SALE_Date": "01/12/23",
-    "Product": "Ground beef meat burger",
-    "Quantity": 64
+    "Product": "Corn",
+    "Quantity": 1
   },
   {
     "SALE_ID": 7,
     "SALE_Date": "01/12/23",
-    "Product": "Hazelnut in black ceramic bowl",
+    "Product": "French fries",
     "Quantity": 2
   },
   {
     "SALE_ID": 8,
     "SALE_Date": "01/12/23",
-    "Product": "Sweet fresh stawberry",
+    "Product": "Ground beef meat burger",
     "Quantity": 3
   },
   {
     "SALE_ID": 8,
     "SALE_Date": "01/12/23",
-    "Product": "Homemade bread",
-    "Quantity": 456
+    "Product": "Hazelnut in black ceramic bowl",
+    "Quantity": 1
   },
   {
     "SALE_ID": 8,
     "SALE_Date": "01/12/23",
-    "Product": "Smoothie with chia seeds",
+    "Product": "Cherry",
     "Quantity": 2
   },
   {
     "SALE_ID": 8,
     "SALE_Date": "02/12/23",
-    "Product": "Corn",
+    "Product": "Homemade bread",
     "Quantity": 5
   },
   {
     "SALE_ID": 8,
     "SALE_Date": "02/12/23",
-    "Product": "Plums",
-    "Quantity": 645
+    "Product": "Smoothie with chia seeds",
+    "Quantity": 2
   },
   {
     "SALE_ID": 8,
     "SALE_Date": "02/12/23",
-    "Product": "Fresh blueberries",
-    "Quantity": -35
+    "Product": "Corn",
+    "Quantity": 10
   },
   {
     "SALE_ID": 8,
     "SALE_Date": "02/12/23",
-    "Product": "Green smoothie",
+    "Product": "Rustic breakfast",
     "Quantity": 2
   },
   {
     "SALE_ID": 9,
     "SALE_Date": "02/12/23",
-    "Product": "Corn",
-    "Quantity": 465
+    "Product": "Sandwich with salad",
+    "Quantity": 3
   },
   {
     "SALE_ID": 9,
     "SALE_Date": "02/12/23",
-    "Product": "Frijoles",
-    "Quantity": 100
+    "Product": "Raw legums",
+    "Quantity": 20
   },
   {
     "SALE_ID": 9,
     "SALE_Date": "02/12/23",
-    "Product": "Ground beef meat burger",
+    "Product": "Fresh stawberry",
     "Quantity": 4
   },
   {
     "SALE_ID": 9,
     "SALE_Date": "02/12/23",
-    "Product": "Hazelnut in black ceramic bowl",
+    "Product": "Pears juice",
     "Quantity": 1
   },
   {
     "SALE_ID": 9,
     "SALE_Date": "02/12/23",
-    "Product": "Sweet fresh stawberry",
-    "Quantity": 131
+    "Product": "Green smoothie",
+    "Quantity": 8
   },
   {
     "SALE_ID": 9,
     "SALE_Date": "02/12/23",
-    "Product": "Homemade bread",
+    "Product": "Cuban sandwiche",
     "Quantity": 9
   },
   {
     "SALE_ID": 10,
     "SALE_Date": "02/12/23",
-    "Product": "Smoothie with chia seeds",
-    "Quantity": 13
+    "Product": "Hazelnut in black ceramic bowl",
+    "Quantity": 2
   },
   {
     "SALE_ID": 10,
     "SALE_Date": "02/12/23",
-    "Product": "Corn",
-    "Quantity": 678
+    "Product": "Tomatoes",
+    "Quantity": 1
   },
   {
     "SALE_ID": 10,
     "SALE_Date": "02/12/23",
     "Product": "Plums",
-    "Quantity": 334
+    "Quantity": 2
   },
   {
     "SALE_ID": 10,
     "SALE_Date": "02/12/23",
     "Product": "Fresh blueberries",
-    "Quantity": 3445
+    "Quantity": 3
   },
   {
     "SALE_ID": 10,
     "SALE_Date": "02/12/23",
     "Product": "Green smoothie",
-    "Quantity": -123
+    "Quantity": 5
   },
   {
     "SALE_ID": 10,
     "SALE_Date": "02/12/23",
     "Product": "Corn",
-    "Quantity": 445
+    "Quantity": 4
   }
 ]

@@ -128,8 +128,8 @@
   {
     "SALE_ID": 6,
     "SALE_Date": "01/12/23",
-    "Product": "Elotes",
-    "Quantity": 100
+    "Product": "Fresh blueberries",
+    "Quantity": 46
   },
   {
     "SALE_ID": 7,
@@ -212,8 +212,8 @@
   {
     "SALE_ID": 9,
     "SALE_Date": "02/12/23",
-    "Product": "Frijoles",
-    "Quantity": 100
+    "Product": "French fries",
+    "Quantity": 20
   },
   {
     "SALE_ID": 9,
