@@ -34,7 +34,7 @@ def validar_calogo_precios(df_precios):
     return True
 
 
-def calcular_totales(df_precios, df_ventas):
+def calc_total(df_precios, df_ventas):
     """Funcion para calcular el total de la venta."""
 
     df_merge = pd.merge(
@@ -75,13 +75,12 @@ def main():
     if validar_calogo_precios(df_precios) is False:
         sys.exit(1)
 
-    total, df_ventas, df_ventas_invalidas = calcular_totales(df_precios, df_ventas)
+    total, df_ventas, df_ventas_invalidas = calc_total(df_precios, df_ventas)
 
     tiempo_ejecucion = time.time() - inicia_tiempo
 
     separador = "=" * 130
     titulo = "REPORTE DE VENTAS".center(130)
-    
     reporte_contenido = (
         f"{separador}\n"
         f"{titulo}\n"
