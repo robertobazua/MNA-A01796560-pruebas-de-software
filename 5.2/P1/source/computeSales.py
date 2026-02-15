@@ -45,19 +45,15 @@ def calcular_totales(df_precios, df_ventas):
         how='left'
     )
 
-    print(df_merge)
+    df_ventas_invalidas = df_merge[df_merge['price'].isna()]
 
-    ventas_invalidas = df_merge[df_merge['price'].isna()]
-
-    print(ventas_invalidas)
-
-    if not ventas_invalidas.empty:
-        for producto in ventas_invalidas['Product'].unique():
+    if not df_ventas_invalidas.empty:
+        for producto in df_ventas_invalidas['Product'].unique():
             print(f"Error: El producto '{producto}' no existe en el catalogo.")
 
     df_merge['subtotal'] = df_merge['price'] * df_merge['Quantity']
 
-    return df_merge['subtotal'].sum()
+    return df_merge['subtotal'].sum(), df_merge, df_ventas_invalidas
 
 
 def main():
@@ -79,13 +75,32 @@ def main():
     if validar_calogo_precios(df_precios) is False:
         sys.exit(1)
 
-    total = calcular_totales(df_precios, df_ventas)
-
-    print(f"Total: {total}")
+    total, df_ventas, df_ventas_invalidas = calcular_totales(df_precios, df_ventas)
 
     tiempo_ejecucion = time.time() - inicia_tiempo
 
-    print(f"Tiempo de ejecucion: {tiempo_ejecucion:.4f} segundos")
+    separador = "=" * 130
+    titulo = "REPORTE DE VENTAS".center(130)
+    
+    reporte_contenido = (
+        f"{separador}\n"
+        f"{titulo}\n"
+        f"{separador}\n"
+        f"{df_ventas.to_string(index=False)}\n"
+        f"{separador}\n"
+        f"Total: {total:,.4f}\n"
+        f"{separador}\n"
+        f"Tiempo de ejecución: {tiempo_ejecucion:.4f} segundos\n"
+        f"{separador}"
+    )
+
+    print(reporte_contenido)
+
+    try:
+        with open("SalesResults.txt", "w", encoding="utf-8") as archivo:
+            archivo.write(reporte_contenido + "\n")
+    except IOError as err:
+        print(f"Error al guardar el archivo: {err}")
 
 
 if __name__ == "__main__":
