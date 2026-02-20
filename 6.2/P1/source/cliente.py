@@ -26,7 +26,7 @@ class Cliente:
     def eliminar_cliente(cls, id_cliente):
         """Elimina un cliente por ID"""
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
-        if id_cliente not in df["id"].values:
+        if id_cliente not in df["id_cliente"].values:
             print(f"Error: Cliente {id_cliente} no encontrado.")
             return False
         df = df[df["id_cliente"] != id_cliente]
