@@ -4,7 +4,7 @@ import pandas as pd
 from data_manager import cargar_dataframe, guardar_dataframe
 
 ARCHIVO = "bd_clientes.csv"
-COLUMNAS = ["id", "nombre", "email"]
+COLUMNAS = ["id_cliente", "nombre", "email"]
 
 
 class Cliente:
@@ -14,7 +14,7 @@ class Cliente:
     def crear_cliente(cls, id_cliente, nombre, email):
         """Crear cliente en la BD"""
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
-        if id_cliente in df["id"].values:
+        if id_cliente in df["id_cliente"].values:
             print(f"Error: Cliente {id_cliente} ya existe.")
             return False
         nuevo_reg = pd.DataFrame([[id_cliente, nombre, email]], columns=COLUMNAS)

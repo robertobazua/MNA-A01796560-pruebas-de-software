@@ -4,35 +4,35 @@ import pandas as pd
 from data_manager import cargar_dataframe, guardar_dataframe
 
 ARCHIVO = "bd_hoteles.csv"
-COLUMNAS = ["id", "nombre", "direccion", "disponibilidad"]
+COLUMNAS = ["id_hotel", "nombre", "direccion", "disponibilidad"]
 
 
 class Hotel:
     """Clase Hotel"""
 
     @classmethod
-    def crear_hotel(cls, id, nombre, direccion, disponibilidad):
+    def crear_hotel(cls, id_hotel, nombre, direccion, disponibilidad):
         """Crea un nuevo hotel en la BD"""
 
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
-        if id in df["id"].values:
-            print(f"Error: Hotel {id} ya existe.")
+        if id_hotel in df["id_hotel"].values:
+            print(f"Error: Hotel {id_hotel} ya existe.")
             return False
-        nuevo_reg = pd.DataFrame([[id, nombre, direccion,
+        nuevo_reg = pd.DataFrame([[id_hotel, nombre, direccion,
                                    disponibilidad]], columns=COLUMNAS)
         df = pd.concat([df, nuevo_reg], ignore_index=True)
         guardar_dataframe(df, ARCHIVO)
         return True
 
     @classmethod
-    def eliminar_hotel(cls, id):
+    def eliminar_hotel(cls, id_hotel):
         """Elimina un hotel por ID"""
 
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
-        if id not in df["id"].values:
-            print(f"Error: Hotel {id} no encontrado.")
+        if id_hotel not in df["id_hotel"].values:
+            print(f"Error: Hotel {id_hotel} no encontrado.")
             return False
-        df = df[df["id"] != id]
+        df = df[df["id_hotel"] != id_hotel]
         guardar_dataframe(df, ARCHIVO)
         return True
 
@@ -48,17 +48,17 @@ class Hotel:
         return df
 
     @classmethod
-    def modificar_hotel(cls, id, **kwargs):
+    def modificar_hotel(cls, id_hotel, **kwargs):
         """Modifica los detalles de un hotel por ID"""
 
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
-        if id not in df["id"].values:
-            print(f"Error: Hotel {id} no encontrado.")
+        if id_hotel not in df["id_hotel"].values:
+            print(f"Error: Hotel {id_hotel} no encontrado.")
             return False
 
         for key, value in kwargs.items():
 
-            if key in COLUMNAS and key != "id":
-                df.loc[df["id"] == id, key] = value
+            if key in COLUMNAS and key != "id_hotel":
+                df.loc[df["id_hotel"] == id_hotel, key] = value
         guardar_dataframe(df, ARCHIVO)
         return True
