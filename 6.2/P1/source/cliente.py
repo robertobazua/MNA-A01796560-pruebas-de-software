@@ -15,11 +15,11 @@ class Cliente:
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
         
         if id in df["id"].values:
-            print(f"Error: ID {id} ya existe.")
+            print(f"Error: Cliente {id} ya existe.")
             return False
         
         nuevo_reg = pd.DataFrame([[id, nombre, email]], columns=COLUMNAS)
-        df = pd.concat(df[df, nuevo_reg], ignore_index=True)
+        df = pd.concat([df, nuevo_reg], ignore_index=True)
         guardar_dataframe(df, ARCHIVO)
         return True
     
@@ -30,7 +30,7 @@ class Cliente:
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
         
         if id not in df["id"].values:
-            print(f"Error: ID {id} no encontrado.")
+            print(f"Error: Cliente {id} no encontrado.")
             return False
         
         df = df[df["id"] != id]
