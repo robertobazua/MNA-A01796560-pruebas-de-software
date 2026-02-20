@@ -4,38 +4,38 @@ import pandas as pd
 from data_manager import cargar_dataframe, guardar_dataframe
 
 ARCHIVO = "bd_reservaciones.csv"
-COLUMNAS = ["id", "cliente_id", "hotel_id"]
+COLUMNAS = ["id_reservacion", "id_cliente", "id_hotel"]
 
 
 class Reservacion:
     """Clase Reservacion"""
 
     @classmethod
-    def crear_reservacion(cls, id, cliente_id, hotel_id):
+    def crear_reservacion(cls, id_reservacion, id_cliente, id_hotel):
         """Crea una nueva reservacion en la BD"""
 
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
 
-        if id in df["id"].values:
-            print(f"Error: Reservacion {id} ya existe.")
+        if id in df["id_reservacion"].values:
+            print(f"Error: Reservacion {id_reservacion} ya existe.")
             return False
-        nuevo_reg = pd.DataFrame([[id, cliente_id, hotel_id]],
+        nuevo_reg = pd.DataFrame([[id_reservacion, id_cliente, id_hotel]],
                                  columns=COLUMNAS)
         df = pd.concat([df, nuevo_reg], ignore_index=True)
         guardar_dataframe(df, ARCHIVO)
         return True
 
     @classmethod
-    def eliminar_reservacion(cls, id):
+    def eliminar_reservacion(cls, id_reservacion):
         """Elimina una reservacion por ID"""
 
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
 
-        if id not in df["id"].values:
-            print(f"Error: Reservacion {id} no encontrada.")
+        if id_reservacion not in df["id_reservacion"].values:
+            print(f"Error: Reservacion {id_reservacion} no encontrada.")
             return False
 
-        df = df[df["id"] != id]
+        df = df[df["id_reservacion"] != id_reservacion]
         guardar_dataframe(df, ARCHIVO)
         return True
 
