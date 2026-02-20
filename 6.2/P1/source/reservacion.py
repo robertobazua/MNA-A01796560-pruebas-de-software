@@ -6,6 +6,7 @@ from data_manager import cargar_dataframe, guardar_dataframe
 ARCHIVO = "bd_reservaciones.csv"
 COLUMNAS = ["id", "cliente_id", "hotel_id"]
 
+
 class Reservacion:
     """Clase Reservacion"""
 
@@ -18,8 +19,8 @@ class Reservacion:
         if id in df["id"].values:
             print(f"Error: Reservacion {id} ya existe.")
             return False
-
-        nuevo_reg = pd.DataFrame([[id, cliente_id, hotel_id]], columns=COLUMNAS)
+        nuevo_reg = pd.DataFrame([[id, cliente_id, hotel_id]],
+                                 columns=COLUMNAS)
         df = pd.concat([df, nuevo_reg], ignore_index=True)
         guardar_dataframe(df, ARCHIVO)
         return True
