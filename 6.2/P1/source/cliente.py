@@ -26,7 +26,7 @@ class Cliente:
     @classmethod
     def eliminar_cliente(cls, id):
         """Elimina un cliente por ID"""
-        
+
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
         
         if id not in df["id"].values:
@@ -36,3 +36,17 @@ class Cliente:
         df = df[df["id"] != id]
         guardar_dataframe(df, ARCHIVO)
         return True
+    
+    @classmethod
+    def listar_clientes(cls):
+        """Lista todos los clientes"""
+
+        df = cargar_dataframe(ARCHIVO, COLUMNAS)
+        row = df[df["id"] == id]
+
+        if row.empty:
+            print(f"Error: Cliente {id} no encontrado.")
+            return False
+        
+        print(row.to_string(index=False))
+        return row
