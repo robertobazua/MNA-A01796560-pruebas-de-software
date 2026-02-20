@@ -19,3 +19,11 @@ def cargar_dataframe(archivo, columnas):
             print(f"Error: Datos invalidos en {archivo}. Creando uno nuevo.")
     
     return pd.DataFrame(columns=columnas)
+
+def guardar_dataframe(df, archivo):
+    """Guardar Dataframe en archivo CSV"""
+
+    try:
+        df.to_csv(archivo, index=False)
+    except IOError as err:
+        print(f"Error: Ocurrio un error al guardar los datos en {archivo}: {err}")
