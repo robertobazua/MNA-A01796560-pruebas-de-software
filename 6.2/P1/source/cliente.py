@@ -1,7 +1,7 @@
 """Modulo Cliente.py"""
 
 import pandas as pd
-from data_manager import cargar_dataframe, guardar_dataframe
+from source.data_manager import cargar_dataframe, guardar_dataframe
 
 ARCHIVO = "bd_clientes.csv"
 COLUMNAS = ["id_cliente", "nombre", "email"]
@@ -17,7 +17,8 @@ class Cliente:
         if id_cliente in df["id_cliente"].values:
             print(f"Error: Cliente {id_cliente} ya existe.")
             return False
-        nuevo_reg = pd.DataFrame([[id_cliente, nombre, email]], columns=COLUMNAS)
+        nuevo_reg = pd.DataFrame([[id_cliente, nombre, email]],
+                                 columns=COLUMNAS)
         df = pd.concat([df, nuevo_reg], ignore_index=True)
         guardar_dataframe(df, ARCHIVO)
         return True
@@ -34,14 +35,13 @@ class Cliente:
         return True
 
     @classmethod
-    def listar_clientes(cls, id_cliente):
+    def listar_clientes(cls):
         """Lista todos los clientes"""
 
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
-        row = df[df["id_cliente"] == id_cliente]
 
-        if row.empty:
-            print(f"Error: Cliente {id_cliente} no encontrado.")
-            return False
-        print(row.to_string(index=False))
-        return row
+        if df.empty:
+            print("No hay clientes registrados.")
+            return df
+        print(df.to_string(index=False))
+        return df

@@ -1,7 +1,7 @@
 """Modulo Reservacion.py"""
 
 import pandas as pd
-from data_manager import cargar_dataframe, guardar_dataframe
+from source.data_manager import cargar_dataframe, guardar_dataframe
 
 ARCHIVO = "bd_reservaciones.csv"
 COLUMNAS = ["id_reservacion", "id_cliente", "id_hotel"]
