@@ -1,3 +1,4 @@
+# pylint: disable=R0801
 """Modulo Cliente.py"""
 
 import pandas as pd

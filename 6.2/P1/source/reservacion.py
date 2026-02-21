@@ -1,3 +1,4 @@
+# pylint: disable=R0801
 """Modulo Reservacion.py"""
 
 import pandas as pd

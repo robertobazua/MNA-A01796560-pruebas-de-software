@@ -1,3 +1,4 @@
+# pylint: disable=R0801
 """Modulo Hotel.py"""
 
 import pandas as pd
@@ -43,7 +44,7 @@ class Hotel:
         df = cargar_dataframe(ARCHIVO, COLUMNAS)
         if df.empty:
             print("No hay hoteles registrados.")
-            return False
+            return df
         print(df.to_string(index=False))
         return df
 

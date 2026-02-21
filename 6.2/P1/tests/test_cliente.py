@@ -7,6 +7,7 @@ Usa una base de datos temporal para no afectar produccion.
 import unittest
 import os
 from source.cliente import Cliente
+import source.cliente
 
 # Archivo temporal para pruebas
 ARCHIVO_PRUEBAS = "bd_clientes_pruebas.csv"
@@ -19,7 +20,6 @@ class TestCliente(unittest.TestCase):
     def setUp(self):
         """Limpia el entorno antes de cada prueba individual."""
         self.archivo_test = ARCHIVO_PRUEBAS
-        import source.cliente
         source.cliente.ARCHIVO = self.archivo_test
 
         if os.path.exists(self.archivo_test):
