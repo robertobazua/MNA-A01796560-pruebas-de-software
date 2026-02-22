@@ -1,5 +1,5 @@
 """
-Módulo test_cliente.py
+Módulo test_hotel.py
 Contiene las pruebas unitarias para la clase Hotel.
 Usa una base de datos temporal para no afectar produccion.
 """
